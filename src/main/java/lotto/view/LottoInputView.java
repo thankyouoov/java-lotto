@@ -9,7 +9,7 @@ public class LottoInputView {
     static Scanner scanner = new Scanner(System.in);
 
     public List<Integer> inputLottoNumber(){
-        return Arrays.stream(scanner.next().split(",\\s*"))
+        return Arrays.stream(scanner.nextLine().split(",\\s*"))
                                            .map(Integer::parseInt)
                                            .collect(Collectors.toList());
     }

@@ -27,9 +27,11 @@ class LottoInputViewTest {
     @Test
     void inputManualLottoNumber(){
         LottoInputView lottoInputView = new LottoInputView();
-        List<Integer> lottoNumber = new ArrayList<>(List.of(1,2,3,4,5,6));
-        List<Integer> inputLottoNumber = lottoInputView.inputManualLottoNumber();
-        assertThat(inputLottoNumber).isEqualTo(inputLottoNumber);
+        List<Integer> expectedLottoNumber = new ArrayList<>(List.of(1,2,3,4,5,6));
+        List<Integer> inputLottoNumber = lottoInputView.inputLottoNumber();
+        System.out.println(expectedLottoNumber);
+        System.out.println(inputLottoNumber);
+        assertThat(inputLottoNumber).isEqualTo(expectedLottoNumber);
 
     }
 
