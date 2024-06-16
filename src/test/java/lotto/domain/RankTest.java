@@ -24,6 +24,7 @@ class RankTest {
         Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(5);
+        assertThat(rank.getWinningMoney()).isEqualTo(5_000);
     }
 
     @DisplayName("당첨등수가 4등이다.")
@@ -38,6 +39,7 @@ class RankTest {
         Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(4);
+        assertThat(rank.getWinningMoney()).isEqualTo(50_000);
     }
 
     @DisplayName("당첨등수가 3등이다.")
@@ -52,6 +54,7 @@ class RankTest {
         Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(3);
+        assertThat(rank.getWinningMoney()).isEqualTo(1_500_000);
     }
 
     @DisplayName("당첨등수가 2등이다.")
@@ -66,6 +69,7 @@ class RankTest {
         Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(2);
+        assertThat(rank.getWinningMoney()).isEqualTo(30_000_000);
     }
 
     @DisplayName("당첨등수가 1등이다.")
@@ -80,6 +84,7 @@ class RankTest {
         Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(1);
+        assertThat(rank.getWinningMoney()).isEqualTo(2_000_000_000);
     }
 
 }
