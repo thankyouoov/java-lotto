@@ -7,7 +7,7 @@ public class Lotto {
     private static final int price = 1000;
 
     private Set<Integer> lottoNumber;
-
+    private boolean isBonusNumberMatch;
     public Lotto(){
         this.lottoNumber = new HashSet<>();
     }
@@ -17,6 +17,9 @@ public class Lotto {
     }
     public Set<Integer> getLottoNumber() {
         return lottoNumber;
+    }
+    public boolean isBonusNumberMatch() {
+        return isBonusNumberMatch;
     }
     public int getLottoCount(int purchasePrice){
         if(purchasePrice < price)
@@ -33,6 +36,10 @@ public class Lotto {
                                                    .collect(Collectors.toSet()));
         return lottoNumber;
     }
+    public boolean isBonusNumberMatch(int bonusNumber){
+        return lottoNumber.contains(bonusNumber);
+    }
+
 
 
 

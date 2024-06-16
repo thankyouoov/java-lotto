@@ -25,7 +25,7 @@ class LottoInputViewTest {
 
     @DisplayName("수동 로또 번호를 입력받는다.")
     @Test
-    void inputManualLottoNumber(){
+    public void inputManualLottoNumber(){
         LottoInputView lottoInputView = new LottoInputView();
         List<Integer> expectedLottoNumber = new ArrayList<>(List.of(1,2,3,4,5,6));
         List<Integer> inputLottoNumber = lottoInputView.inputLottoNumber();

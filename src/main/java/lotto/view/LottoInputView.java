@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 public class LottoInputView {
     static Scanner scanner = new Scanner(System.in);
 
-    public List<Integer> inputLottoNumber(){
+    public static List<Integer> inputLottoNumber(){
         return Arrays.stream(scanner.nextLine().split(",\\s*"))
                                            .map(Integer::parseInt)
                                            .collect(Collectors.toList());
     }
-    public Integer inputBonusNumber(){
+    public static Integer inputBonusNumber(){
         return scanner.nextInt();
     }
 

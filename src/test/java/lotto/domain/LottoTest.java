@@ -1,9 +1,15 @@
 package lotto.domain;
 
+import lotto.view.LottoInputView;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.List;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,6 +50,26 @@ class LottoTest {
         assertThat(lottoNumber).doesNotHaveDuplicates();
     }
 
+    @BeforeEach
+    public void setUp() {
+        // 테스트 입력을 모의하기 위해 System.in을 바꿉니다.
+        String simulatedInput = "6";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+    }
+    @DisplayName("보너스 번호가 일치하는지 확인한다.")
+    @Test
+    void isBonusNumberMatch(){
+        Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
+        int bonusNumber = 6;
+        boolean isBonusMatch = lotto.isBonusNumberMatch(bonusNumber);
+        assertThat(isBonusMatch).isEqualTo(true);
 
+        bonusNumber = 7;
+        isBonusMatch = lotto.isBonusNumberMatch(bonusNumber);
+
+        assertThat(isBonusMatch).isEqualTo(false);
+
+    }
 
 }
