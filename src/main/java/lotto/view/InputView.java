@@ -1,30 +1,32 @@
 package lotto.view;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class InputView {
-    static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static List<Integer> inputLottoNumber(){
-        return Arrays.stream(scanner.nextLine().split(",\\s*"))
-                                    .filter(s -> !s.isEmpty())
-                                    .map(Integer::parseInt)
-                                    .collect(Collectors.toList());
+
+        List<Integer> lottoNumber = Arrays.stream(scanner.nextLine().split(",\\s*"))
+                .filter(s -> !s.isEmpty())
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+        return lottoNumber;
     }
-    public static Integer inputBonusNumber(){
-        int bonusNumber = scanner.nextInt();
+    public static Integer inputInteger(){
+        int value = scanner.nextInt();
+        clearInputBuffer();
+        return value;
+    }
+
+    public static void clearInputBuffer() {
         scanner.nextLine();
-        return bonusNumber;
     }
-    public static int inputPurchasePrice(){
-        int purchasePrice = scanner.nextInt();
-        scanner.nextLine();
-        return purchasePrice;
-    }
+
 
 
 }

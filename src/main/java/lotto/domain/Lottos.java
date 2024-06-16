@@ -36,7 +36,7 @@ public class Lottos {
         return winningResults;
     }
 
-    public void makeLottos(int lottoCount) {
+    public void makeAutoLottos(int lottoCount) {
         for(int i = 0; i< lottoCount; ++i) {
             Lotto lotto = new Lotto();
             lotto.createLottoNumber();
