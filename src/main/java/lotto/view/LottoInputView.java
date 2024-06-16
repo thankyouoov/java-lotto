@@ -13,6 +13,9 @@ public class LottoInputView {
                                            .map(Integer::parseInt)
                                            .collect(Collectors.toList());
     }
+    public Integer inputBonusNumber(){
+        return scanner.nextInt();
+    }
 
 
 
