@@ -61,12 +61,13 @@ class LottoTest {
     @Test
     void isBonusNumberMatch(){
         Lotto lotto = new Lotto(List.of(1,2,3,4,5,6));
+        LottoGame lottoGame = new LottoGame(lotto);
         int bonusNumber = 6;
-        boolean isBonusMatch = lotto.isBonusNumberMatch(bonusNumber);
+        boolean isBonusMatch = lottoGame.isBonusNumberMatch(bonusNumber);
         assertThat(isBonusMatch).isEqualTo(true);
 
         bonusNumber = 7;
-        isBonusMatch = lotto.isBonusNumberMatch(bonusNumber);
+        isBonusMatch = lottoGame.isBonusNumberMatch(bonusNumber);
 
         assertThat(isBonusMatch).isEqualTo(false);
 

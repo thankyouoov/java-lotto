@@ -22,12 +22,12 @@ class RankTest {
         LottoGame lottoGame = new LottoGame(lotto);
         lottoGame.getMatchCount(winningNumber);
 
-        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
+        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lottoGame.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(5);
         assertThat(rank.getWinningMoney()).isEqualTo(5_000);
         WinningResult winningResult = new WinningResult(rank);
-        OutputView.printLottoResult(winningResult);
+        OutputView.printLottoResults(new WinningResults(winningResult));
     }
 
     @DisplayName("당첨등수가 4등이다.")
@@ -39,12 +39,12 @@ class RankTest {
         LottoGame lottoGame = new LottoGame(lotto);
         lottoGame.getMatchCount(winningNumber);
 
-        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
+        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lottoGame.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(4);
         assertThat(rank.getWinningMoney()).isEqualTo(50_000);
         WinningResult winningResult = new WinningResult(rank);
-        OutputView.printLottoResult(winningResult);
+        OutputView.printLottoResults(new WinningResults(winningResult));
     }
 
     @DisplayName("당첨등수가 3등이다.")
@@ -56,12 +56,12 @@ class RankTest {
         LottoGame lottoGame = new LottoGame(lotto);
         lottoGame.getMatchCount(winningNumber);
 
-        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
+        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lottoGame.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(3);
         assertThat(rank.getWinningMoney()).isEqualTo(1_500_000);
         WinningResult winningResult = new WinningResult(rank);
-        OutputView.printLottoResult(winningResult);
+        OutputView.printLottoResults(new WinningResults(winningResult));
     }
 
     @DisplayName("당첨등수가 2등이다.")
@@ -73,12 +73,12 @@ class RankTest {
         LottoGame lottoGame = new LottoGame(lotto);
         lottoGame.getMatchCount(winningNumber);
 
-        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
+        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lottoGame.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(2);
         assertThat(rank.getWinningMoney()).isEqualTo(30_000_000);
         WinningResult winningResult = new WinningResult(rank);
-        OutputView.printLottoResult(winningResult);
+        OutputView.printLottoResults(new WinningResults(winningResult));
     }
 
     @DisplayName("당첨등수가 1등이다.")
@@ -90,12 +90,12 @@ class RankTest {
         LottoGame lottoGame = new LottoGame(lotto);
         lottoGame.getMatchCount(winningNumber);
 
-        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lotto.isBonusNumberMatch(bonusNumber));
+        Rank rank = Rank.getRank(lottoGame.getMatchCount(winningNumber),lottoGame.isBonusNumberMatch(bonusNumber));
 
         assertThat(rank.getRank()).isEqualTo(1);
         assertThat(rank.getWinningMoney()).isEqualTo(2_000_000_000);
         WinningResult winningResult = new WinningResult(rank);
-        OutputView.printLottoResult(winningResult);
+        OutputView.printLottoResults(new WinningResults(winningResult));
     }
 
 }

@@ -1,18 +1,39 @@
 package lotto.view;
 
+import lotto.domain.Rank;
 import lotto.domain.WinningResult;
+import lotto.domain.WinningResults;
+
+import java.util.stream.Collectors;
 
 public class OutputView {
     private static final int SECOND = 2;
 
-    public static void printLottoResult(WinningResult winningResult){
-        System.out.println("당첨통계");
-        System.out.println("-------");
-        String secondMessage = "";
-        if(SECOND == winningResult.getRank().getRank())
-            secondMessage = ", 보너스 볼 일치";
+    public static String makeWinningStatistics(WinningResults winningResults){
 
-        System.out.println(String.format("%d개 일치%s (%d원)",winningResult.getRank().getMatchCount(),secondMessage, winningResult.getRank().getWinningMoney()));
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("당첨 통계\n---------\n")
+                     .append(winningResults.winningRanks().stream()
+                                                          .map(rank -> formatRank(rank, winningResults))
+                                                          .collect(Collectors.joining("\n")));
+        double winningRate = winningResults.getWinningRate();
+        stringBuilder.append("\n")
+                     .append(String.format("총 수익률을 %.2f입니다.",winningRate));
+        if (winningRate < 1) {
+            stringBuilder.append("(기준이 1이기 때문에 결과적으로 손해라는 의미임)");
+        }
+        return stringBuilder.toString();
+
+    }
+    private static String formatRank(Rank rank, WinningResults winningResults){
+        String secondMessage = "";
+        if(SECOND == rank.getRank())
+            secondMessage = ", 보너스 볼 일치";
+        return String.format("%d개 일치%s (%d원)- %d개",rank.getMatchCount(),secondMessage, rank.getWinningMoney(),winningResults.countRank(rank));
+    }
+    public static void printLottoResults(WinningResults winningResults){
+        System.out.println(makeWinningStatistics(winningResults));
+
     }
 
 }
