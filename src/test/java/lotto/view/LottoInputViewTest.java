@@ -1,6 +1,5 @@
 package lotto.view;
 
-import lotto.domain.Lotto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class LottoInputViewTest {
 
@@ -26,7 +24,7 @@ class LottoInputViewTest {
     @DisplayName("수동 로또 번호를 입력받는다.")
     @Test
     public void inputManualLottoNumber(){
-        LottoInputView lottoInputView = new LottoInputView();
+        InputView lottoInputView = new InputView();
         List<Integer> expectedLottoNumber = new ArrayList<>(List.of(1,2,3,4,5,6));
         List<Integer> inputLottoNumber = lottoInputView.inputLottoNumber();
         System.out.println(expectedLottoNumber);

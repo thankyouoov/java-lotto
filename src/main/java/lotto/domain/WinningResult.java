@@ -14,11 +14,6 @@ public class WinningResult {
     public Rank getRank() {
         return rank;
     }
-    public List<Rank> winningRanks() {
-        return Arrays.stream(Rank.values())
-                .filter(i -> i.getMatchCount() >= Rank.FIFTH.getMatchCount())
-                .collect(Collectors.toList());
-    }
     public long winningMoney() {
         return rank.getWinningMoney();
     }

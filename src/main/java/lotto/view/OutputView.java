@@ -1,8 +1,6 @@
 package lotto.view;
 
-import lotto.domain.Rank;
-import lotto.domain.WinningResult;
-import lotto.domain.WinningResults;
+import lotto.domain.*;
 
 import java.util.stream.Collectors;
 
@@ -35,5 +33,25 @@ public class OutputView {
         System.out.println(makeWinningStatistics(winningResults));
 
     }
+    public static void printLottoGameMessage(String lottoGameMessage){
+        System.out.println(lottoGameMessage);
+
+    }
+
+    public static void printLottoNumber(Lottos lottos){
+        StringBuilder lottoNumber = new StringBuilder();
+        lottos.getLottos()
+               .forEach(lotto -> lottoNumber.append(formatLotto(lotto))
+                                            .append("\n"));
+        System.out.println(lottoNumber);
+
+    }
+    private static String formatLotto(Lotto lotto) {
+        return "[" + lotto.getLottoNumber().stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", ")) + "]";
+    }
+
+
 
 }

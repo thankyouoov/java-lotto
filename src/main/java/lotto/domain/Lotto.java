@@ -18,7 +18,7 @@ public class Lotto {
     public Set<Integer> getLottoNumber() {
         return lottoNumber;
     }
-    public int getLottoCount(int purchasePrice){
+    public static int getLottoCount(int purchasePrice){
         if(purchasePrice < price)
             throw new IllegalArgumentException("[ERROR]: 구매금액이 부족합니다.");
         return purchasePrice / price;

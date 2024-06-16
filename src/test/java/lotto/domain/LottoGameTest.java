@@ -1,8 +1,6 @@
 package lotto.domain;
 
-import lotto.domain.Lotto;
-import lotto.domain.LottoGame;
-import lotto.view.LottoInputView;
+import lotto.view.InputView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +26,7 @@ class LottoGameTest {
     @Test
     void calculateMatchNumber(){
         Lotto lotto = new Lotto(new ArrayList<>(List.of(1,2,3,4,5,6)));
-        LottoInputView lottoInputView = new LottoInputView();
+        InputView lottoInputView = new InputView();
         List<Integer> winningNumber = lottoInputView.inputLottoNumber();
         LottoGame lottoGame = new LottoGame(lotto);
         int matchCount = lottoGame.getMatchCount(winningNumber);
